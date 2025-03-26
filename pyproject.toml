@@ -5,7 +5,7 @@ description = "Default template for PDM package"
 authors = [
     {name = "jaotarzan", email = "joaovssouza59@gmail.com"},
 ]
-dependencies = []
+dependencies = ["django>=5.1.7", "djangorestframework>=3.15.2"]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
@@ -17,3 +17,20 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.scripts]
+dev = "python manage.py runserver"
+runserver = "python manage.py runserver"
+createsuperuser = "python manage.py createsuperuser"
+changepassword = "python manage.py changepassword"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+shell = "python manage.py shell"
+test = "python manage.py test"
+startapp = "python manage.py startapp {args}"
+loaddata = "python manage.py loaddata {args}"
+dumpdata = "python manage.py dumpdata {args}"
+model = "python manage.py graph_models -a -g -o models.png"
+populate = "python manage.py populate"
+req = "pdm export -f requirements --without-hashes -o requirements.txt"
+migrate_db = "python commands.py"
